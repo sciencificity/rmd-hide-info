@@ -1,0 +1,75 @@
+---
+title: "Hide Results and Plots"
+author: "Vebash Naidoo"
+date: "12/02/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+```
+
+### Reports - Supress Output
+
+Occassionally you want to do all your exploratory data analysis (EDA) and results in one RMarkdown file but you want to hide certain results and plots that you used during your EDA, and expose specific ones. E.g. This happens for business communications where information is exposed as needed for the audience you're communicating to.
+
+If you want to do all your work in the RMarkdown document, have your code be evaluated but supress the output of models, plots etc. you can use:
+
+1. <span style="color: #5196b4;background-color:#f4e4e7">`results = "hide"`</span>: Supress printing results to document.
+1. <span style="color: #5196b4;background-color:#f4e4e7">`fig.keep = "none"`</span>: Supress printing of plots to document.
+
+```{r lin-reg, echo = FALSE, eval = TRUE, results="hide", fig.keep = "none"}
+library(ggplot2)
+ggplot(mtcars, aes(x = disp, y = mpg)) +
+  geom_point() +
+  geom_smooth()
+
+model_lin <- lm(mpg ~ disp + wt, data = mtcars)
+model_lin
+summary(model_lin)
+```
+
+````markdown
+`r ''````{r lin-reg, echo = FALSE, eval = TRUE, results="hide", fig.keep = "none"}
+
+ggplot(mtcars, aes(x = disp, y = mpg)) +
+  geom_point() +
+  geom_smooth()
+
+model_lin <- lm(mpg ~ disp + wt, data = mtcars)
+summary(model_lin)
+
+```
+````
+
+
+Note that the <span style="color: #5196b4;background-color:#f4e4e7">`results="hide"`</span> and <span style="color: #5196b4;background-color:#f4e4e7">`fig.keep = "none"`</span> parameters were added to the code chunk to prevent printing of the R code results and the exploratory plots created in the code chunk.
+
+
+### Reports - Output shown as normal
+
+The code chunk options mentioned above have been removed. The output is printed in the rendered report (plot and model output now printed to html report).
+
+````markdown
+`r ''````{r lin-reg2, echo = FALSE, eval = TRUE}
+
+ggplot(mtcars, aes(x = wt, y = mpg)) +
+  geom_point() +
+  geom_smooth() +
+  labs(title = "Relationship between Weight and Miles Per Gallon")
+  
+model_lin
+
+```
+````
+
+```{r lin-reg2, echo = FALSE, eval = TRUE}
+
+ggplot(mtcars, aes(x = wt, y = mpg)) +
+  geom_point() +
+  geom_smooth() +
+  labs(title = "Relationship between Weight and Miles Per Gallon")
+  
+model_lin
+```
+
