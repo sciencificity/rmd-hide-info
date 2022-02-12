@@ -9,14 +9,14 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 ```
 
-### Reports - Supress Output
+### Reports - Suppress Output
 
 Occassionally you want to do all your exploratory data analysis (EDA) and results in one RMarkdown file but you want to hide certain results and plots that you used during your EDA, and expose specific ones. E.g. This happens for business communications where information is exposed as needed for the audience you're communicating to.
 
-If you want to do all your work in the RMarkdown document, have your code be evaluated but supress the output of models, plots etc. you can use:
+If you want to do all your work in the RMarkdown document, have your code be evaluated but suppress the output of models, plots etc. you can use:
 
-1. <span style="color: #5196b4;background-color:#f4e4e7">`results = "hide"`</span>: Supress printing results to document.
-1. <span style="color: #5196b4;background-color:#f4e4e7">`fig.keep = "none"`</span>: Supress printing of plots to document.
+1. <span style="color: #5196b4;background-color:#f4e4e7">`results = "hide"`</span>: suppress printing results to document.
+1. <span style="color: #5196b4;background-color:#f4e4e7">`fig.keep = "none"`</span>: suppress printing of plots to document.
 
 ```{r lin-reg, echo = FALSE, eval = TRUE, results="hide", fig.keep = "none"}
 library(ggplot2)

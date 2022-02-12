@@ -172,13 +172,13 @@ pre code {
 </div>
 
 
-<div id="reports---supress-output" class="section level3">
-<h3>Reports - Supress Output</h3>
+<div id="reports---suppress-output" class="section level3">
+<h3>Reports - Suppress Output</h3>
 <p>Occassionally you want to do all your exploratory data analysis (EDA) and results in one RMarkdown file but you want to hide certain results and plots that you used during your EDA, and expose specific ones. E.g. This happens for business communications where information is exposed as needed for the audience you’re communicating to.</p>
-<p>If you want to do all your work in the RMarkdown document, have your code be evaluated but supress the output of models, plots etc. you can use:</p>
+<p>If you want to do all your work in the RMarkdown document, have your code be evaluated but suppress the output of models, plots etc. you can use:</p>
 <ol style="list-style-type: decimal">
-<li><span style="color: #5196b4;background-color:#f4e4e7"><code>results = &quot;hide&quot;</code></span>: Supress printing results to document.</li>
-<li><span style="color: #5196b4;background-color:#f4e4e7"><code>fig.keep = &quot;none&quot;</code></span>: Supress printing of plots to document.</li>
+<li><span style="color: #5196b4;background-color:#f4e4e7"><code>results = &quot;hide&quot;</code></span>: suppress printing results to document.</li>
+<li><span style="color: #5196b4;background-color:#f4e4e7"><code>fig.keep = &quot;none&quot;</code></span>: suppress printing of plots to document.</li>
 </ol>
 <pre class="markdown"><code>```{r lin-reg, echo = FALSE, eval = TRUE, results=&quot;hide&quot;, fig.keep = &quot;none&quot;}
 
